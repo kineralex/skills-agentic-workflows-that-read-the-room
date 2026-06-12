@@ -11,7 +11,7 @@ env:
   COPILOT_PROVIDER_BASE_URL: "https://opencode.ai/zen/go/v1"
   COPILOT_MODEL: "kimi-k2.6"
 secrets:
-  COPILOT_PROVIDER_API_KEY: OPENCODE_GO_KEY
+  COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENCODE_GO_KEY }}
 safe-outputs:
   create-pull-request:
     title-prefix: "[mona] "
