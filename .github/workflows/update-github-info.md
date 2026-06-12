@@ -5,6 +5,18 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '17 9 * * *'
+
+# 1. OPENCODE CONNECTION
+env:
+  COPILOT_OFFLINE: "true"
+  COPILOT_PROVIDER_TYPE: "openai"
+  COPILOT_PROVIDER_BASE_URL: "https://opencode.ai/zen/go/v1"
+  #COPILOT_PROVIDER_API_KEY: "${{ secrets.OPENCODE_GO_KEY }}"
+  COPILOT_MODEL: "kimi-k2.6"
+
+secrets:
+  COPILOT_PROVIDER_API_KEY: OPENCODE_GO_KEY
+
 safe-outputs:
   create-pull-request:
     title-prefix: "[mona] "
@@ -18,9 +30,12 @@ network:
     - github.com
     - github.blog
     - awesome-copilot.github.com
+    - opencode.ai
 ---
 
 # Update Mona's GitHub Info website
+
+Use the repository's Copilot model setting (for example `GH_AW_DEFAULT_MODEL_COPILOT` in Actions variables) instead of hardcoding a model. Leave the default model to the project/repo configuration.
 
 Read `notes/mona-notes.md` before making changes.
 
